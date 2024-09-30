@@ -1,0 +1,21 @@
+{
+    "newsletter_subscription_center": "مركز الاشتراك في النشرة الإخبارية",
+    "more_content": "المزيد من المحتوى من أرقام في بريدك الإلكتروني.",
+    "choose_newsletter": "إختر نشرة بريدية من بين القائمة أدناه وأدخل بريدك الإلكتروني للتسجيل",
+    "conditions":"عند الاشتراك في النشرة الإخبارية، فإنك توافق على تلقي رسائل البريد الإلكتروني الدورية من موقعنا وتوافق على",
+    "privacy_policy": "سياسة الخصوصية",
+    "and": "و",
+    "terms_and_conditions": "الشروط والأحكام",
+    "conditions2": " يمكنك إلغاء الاشتراك في أي وقت من الرابط في البريد الإلكتروني الخاص بالنشرة",
+    "subscribe": "اشترك",
+    "unsubscribe": "إلغاء الاشتراك",
+    "complete_registration_here": "أكمل التسجيل هنا",
+    "loading_newsletters": "جارٍ تحميل النشرات الإخبارية...",
+    "error_loading_newsletters": "خطأ في تحميل النشرات الإخبارية: {{message}}",
+    "loading_subscriptions": "جارٍ تحميل الاشتراكات...",
+    "error_loading_subscriptions": "خطأ في تحميل الاشتراكات: {{message}}",
+    "sign_up_for_newsletter": "اشترك في نشرة أرقام الإخبارية",
+    "enter_your_email": "أدخل بريدك الإلكتروني",
+    "submit": "إرسال",
+    "verify": "تحقق"
+  }

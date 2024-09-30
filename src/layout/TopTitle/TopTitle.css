@@ -1,0 +1,21 @@
+.newsletter-container {
+    margin-top: 50px;
+}
+
+.newsletter-container h2 {
+    font-size: 12px;
+    color: #ee7b0b;
+    margin-top: 0;
+    margin-bottom: .5rem;
+    font-weight: 700 !important;
+    text-decoration: underline;
+    font-family: enFont;
+}
+
+#terms-and-conditions {
+    font-size: 12.5px;
+}
+a {
+    color: #ee7b0b;
+    font-size: 12px;
+}

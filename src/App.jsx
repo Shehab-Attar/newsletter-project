@@ -1,5 +1,11 @@
+import NewsletterSubscription from './pages/NewsletterPage/NewsletterPage';
+
 const App = () => {
-  return <div>App</div>;
+  return (    
+
+    <NewsletterSubscription />
+
+  );
 };
 
 export default App;

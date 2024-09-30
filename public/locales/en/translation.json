@@ -1,0 +1,21 @@
+{
+  "newsletter_subscription_center": "Newsletter Subscription Center",
+  "more_content": "More content from Argaam in your inbox.",
+  "choose_newsletter": "Choose a newsletter from the list below and enter your email to register",
+  "conditions": "By subscribing to the newsletter, you agree to receive periodic emails from our site and accept the",
+  "privacy_policy": "Privacy Policy",
+  "and": "and",
+  "terms_and_conditions": "Terms and Conditions",
+  "conditions2": " You can unsubscribe at any time from the link in the newsletter email.",
+  "subscribe": "Subscribe",
+  "unsubscribe": "Unsubscribe",
+  "complete_registration_here": "Complete Registration Here",
+  "loading_newsletters": "Loading newsletters...",
+  "error_loading_newsletters": "Error loading newsletters: {{message}}",
+  "loading_subscriptions": "Loading subscriptions...",
+  "error_loading_subscriptions": "Error loading subscriptions: {{message}}",
+  "sign_up_for_newsletter": "Sign up for Argaam Newsletter",
+  "enter_your_email": "Enter your email",
+  "submit": "Submit",
+  "verify": "Verify"
+}
