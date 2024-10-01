@@ -11,11 +11,20 @@
   "unsubscribe": "Unsubscribe",
   "complete_registration_here": "Complete Registration Here",
   "loading_newsletters": "Loading newsletters...",
-  "error_loading_newsletters": "Error loading newsletters: {{message}}",
+  "error_loading_newsletters": "Error loading newsletters",
   "loading_subscriptions": "Loading subscriptions...",
-  "error_loading_subscriptions": "Error loading subscriptions: {{message}}",
+  "error_loading_subscriptions": "Error loading subscriptions",
   "sign_up_for_newsletter": "Sign up for Argaam Newsletter",
   "enter_your_email": "Enter your email",
   "submit": "Submit",
-  "verify": "Verify"
+  "verify": "Verify",
+  "otp_placeholder": "Enter OTP",
+  "otp_request_success": "OTP request was successful",
+  "otp_request_failure": "Failed to send OTP",
+  "otp_verified_success": "OTP verified successfully!",
+  "otp_verified_failure": "Failed to verify OTP",
+  "subscription_success": "Subscribed successfully!",
+  "subscription_failure": "Failed to subscribe",
+  "unsubscription_success": "Unsubscribed successfully!",
+  "unsubscription_failure": "Failed to unsubscribe"
 }

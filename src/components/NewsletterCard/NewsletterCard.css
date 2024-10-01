@@ -9,6 +9,8 @@
     width: 110px;
 }
 
-#brief {
-    font-size: 12px;
+.btn-outline-danger {
+    padding: 3px 4px;
+    font-size: 12.5px;
+    width: 110px;
 }

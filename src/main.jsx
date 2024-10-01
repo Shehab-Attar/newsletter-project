@@ -4,8 +4,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { I18nextProvider } from 'react-i18next';
 import 'react-toastify/dist/ReactToastify.css';
-import App from "./App.jsx";
 import i18n from './i18n';
+import App from "./App.jsx";
 import "./index.css";
 
 const queryClient = new QueryClient({

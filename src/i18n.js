@@ -16,16 +16,10 @@ i18n.on("languageChanged", (locales) => {
   .use(Backend).init({
     debug: true,
     fallbackLng: "en",
+    lang: "auto",
     detection: {
-      order: ["path", "cookie", "localStorage", "sessionStorage", "navigator", "htmlTag", "querystring", "subdomain"],
-      caches: ["cookie"],
-    },
-    backend: {
-      loadPath: '/locales/{{lng}}/{{ns}}.json',
-    },
-    react: {
-      useSuspense: false,
-    },
-  });
+      order: ["path"]
+    }
+ })
 
-export default i18n;
+ export default i18n;

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useQuery, useMutation } from '@tanstack/react-query';
-import { useNavigate, useLocation, useParams } from 'react-router-dom';
+import { useParams, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -24,8 +24,8 @@ const NewsletterSubscription = () => {
   const [loading, setLoading] = useState(false);
   const [pasteOtp, setPasteOtp] = useState(new Array(6).fill(''));
   const [selectedNewsletter, setSelectedNewsletter] = useState(null);
-  const navigate = useNavigate();
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (lang) {
@@ -45,37 +45,33 @@ const NewsletterSubscription = () => {
     }
   };
 
-  // Determine langId based on the lang parameter
   const langId = lang === 'ar' ? 1 : 2;
 
-  // Fetch newsletters without refetching on focus
   const { data: newsletters, error: newslettersError, isLoading: isLoadingNewsletters } = useQuery({
     queryKey: ['newsletters', lang],
-    queryFn: () => fetchAllNewsletters(langId), // Use langId here
+    queryFn: () => fetchAllNewsletters(langId),
   });
 
-  // Fetch user subscription status
   const { data: userSubscriptions, error: subscriptionsError, isLoading: isLoadingSubscriptions } = useQuery({
     queryKey: ['userSubscriptions', userId, lang],
-    queryFn: () => getUserSubscription(userId, langId), // Use langId here
-    enabled: !!userId, // Only run the query if userId is defined
+    queryFn: () => getUserSubscription(userId, langId),
+    enabled: !!userId,
     onSuccess: (response) => {
-        const subscriptionStatus = {};
-        if (Array.isArray(response.data)) {
-          response.data.forEach(item => {
-            subscriptionStatus[item.preferenceID] = item.isSubscribed;
-          });
-        }
-        setSubscriptions(subscriptionStatus);
-        
-        // Set guest user information if the registrationLink exists
-        if (response.registrationLink) {
-          setIsGuestUser(true);
-          setMessageEN(response.messageEn); // This is the message you want to show
-        } else {
-          setIsGuestUser(false);
-          setMessageEN(''); // Clear message if the user is not a guest
-        }
+      const subscriptionStatus = {};
+      if (Array.isArray(response.data)) {
+        response.data.forEach(item => {
+          subscriptionStatus[item.preferenceID] = item.isSubscribed;
+        });
+      }
+      setSubscriptions(subscriptionStatus);
+      
+      if (response.registrationLink) {
+        setIsGuestUser(true);
+        setMessageEN(response.messageEn);
+      } else {
+        setIsGuestUser(false);
+        setMessageEN('');
+      }
     },
     onError: (error) => {
       console.error('Failed to fetch user subscriptions:', error);
@@ -84,12 +80,11 @@ const NewsletterSubscription = () => {
 
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
-    const userIdFromUrl = queryParams.get('userId');
+    const userIdFromUrl = queryParams.get('userId') || '0';
 
     if (userIdFromUrl === '0') {
       setSubscriptions({});
       setMessageEN('');
-      navigate('/');
       return;
     }
 
@@ -103,43 +98,40 @@ const NewsletterSubscription = () => {
       setSubscriptions({});
       setMessageEN('');
     }
-  }, [location.search, navigate]);
+  }, [location.search, lang, langId]);
 
-  // Update URL when userId changes
   useEffect(() => {
-    if (userId) {
-      const url = `/${lang}/newsletter/get-user-subscriptions?userId=${userId}&langId=${langId}`;
-      navigate(url);
+    if (Object.keys(subscriptions).length === 0 && userId !== '0') {
+      navigate(`/${lang}?userId=${userId}`);
     }
-  }, [userId, navigate, langId, lang]);
+  }, [subscriptions, userId, lang, navigate]);
 
-  // Handle OTP request
   const { mutate: handleRequestOtp } = useMutation({
     mutationFn: requestOtp,
     onSuccess: (data) => {
       setVerificationID(data.regitserVerificationID);
-      toast.success(data.message, { autoClose: 2500 });
+      toast.success(t('otp_request_success', { message: data.message }), { autoClose: 500 });
     },
     onError: (error) => {
       console.error('Error sending OTP:', error);
-      toast.error('Failed to send OTP', { autoClose: 2500 });
+      toast.error(t('otp_request_failure'), { autoClose: 500 });
     },
   });
 
-  // Handle OTP verification
   const { mutate: handleVerifyOtp } = useMutation({
     mutationFn: verifyOtp,
     onSuccess: (data) => {
       setUserId(data.userId);
-      setIsVerified(true); // Set user as verified
-      toast.success('OTP verified successfully!', { autoClose: 2500 });
+      setIsVerified(true);
+      toast.success(t('otp_verified_success'), { autoClose: 500 });
       if (selectedNewsletter) {
         handleSubscribe({ userId: data.userId, preferenceID: selectedNewsletter.preferenceID });
       }
+      navigate(`/${lang}?userId=${data.userId}`); // Update the URL with the new userId
     },
     onError: (error) => {
       console.error('Error verifying OTP:', error);
-      toast.error('Failed to verify OTP', { autoClose: 2500 });
+      toast.error(t('otp_verified_failure'), { autoClose: 500 });
     },
   });
 
@@ -147,7 +139,7 @@ const NewsletterSubscription = () => {
     mutationFn: subscribeToNewsletter,
     onMutate: () => setLoading(true),
     onSuccess: (data, variables) => {
-      toast.success('Subscribed successfully!', { autoClose: 2500 });
+      toast.success(t('subscription_success'), { autoClose: 500 });
       setShowModal(false);
       setSubscriptions((prev) => ({
         ...prev,
@@ -157,19 +149,23 @@ const NewsletterSubscription = () => {
         ...subscriptions,
         [variables.preferenceID]: true,
       }));
+      if (userId === '0') {
+        navigate(`/${lang}?userId=${data.userId}`); // Update the URL with the new userId
+      }
     },
     onError: (error) => {
       console.error('Error subscribing to newsletter:', error);
-      toast.error('Failed to subscribe', { autoClose: 2500 });
+      toast.error(t('subscription_failure'), { autoClose: 500 });
     },
     onSettled: () => setLoading(false),
   });
+
 
   const { mutate: handleUnsubscribe } = useMutation({
     mutationFn: unsubscribeFromNewsletter,
     onMutate: () => setLoading(true),
     onSuccess: (data, variables) => {
-      toast.success('Unsubscribed successfully!', { autoClose: 2500 });
+      toast.success(t('unsubscription_success'), { autoClose: 500 });
       setSubscriptions((prev) => ({
         ...prev,
         [variables.preferenceID]: false,
@@ -181,7 +177,7 @@ const NewsletterSubscription = () => {
     },
     onError: (error) => {
       console.error('Error unsubscribing from newsletter:', error);
-      toast.error('Failed to unsubscribe', { autoClose: 2500 });
+      toast.error(t('unsubscription_failure'), { autoClose: 500 });
     },
     onSettled: () => setLoading(false),
   });
@@ -194,7 +190,7 @@ const NewsletterSubscription = () => {
       } else {
         handleSubscribe({ userId, preferenceID: newsletter.preferenceID });
       }
-    } else if (!isVerified) { // Only show modal if not verified
+    } else if (!isVerified) {
       setShowModal(true);
     }
   };
@@ -206,7 +202,6 @@ const NewsletterSubscription = () => {
     }
   };
 
-  // Determine if the user is subscribed to any newsletter
   const isSubscribed = Object.values(subscriptions).some(isSubscribed => isSubscribed);
 
   return (
