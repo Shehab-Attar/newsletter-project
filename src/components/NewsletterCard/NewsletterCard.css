@@ -1,16 +1,37 @@
 .card-body {
-    padding: 13px;
+  padding: 13px;
 }
 
-
 .btn-outline-dark {
-    padding: 3px 4px;
-    font-size: 12.5px;
-    width: 110px;
+  padding: 3px 4px;
+  font-size: 12.5px;
+  width: 110px;
 }
 
 .btn-outline-danger {
-    padding: 3px 4px;
-    font-size: 12.5px;
-    width: 110px;
+  padding: 3px 4px;
+  font-size: 12.5px;
+  width: 110px;
+}
+
+.tags-span {
+  font-size: 10px;
+  border-radius: 2px;
+  background: #fdd6af8a;
+  width: fit-content;
+  padding: 2px 4px;
+}
+
+.flag-img {
+  width: 20px;
+  margin: 0 5px;
+  margin-top: 0 !important;
+  img,
+  svg {
+    vertical-align: middle;
+  }
+}
+
+a {
+  text-decoration: none;
 }

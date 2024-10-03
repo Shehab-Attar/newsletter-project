@@ -1,21 +1,46 @@
 .newsletter-container {
-    margin-top: 50px;
+  margin-top: 50px;
 }
 
 .newsletter-container h2 {
-    font-size: 12px;
-    color: #ee7b0b;
-    margin-top: 0;
-    margin-bottom: .5rem;
-    font-weight: 700 !important;
-    text-decoration: underline;
-    font-family: enFont;
+  font-size: 12px;
+  color: #ee7b0b;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 700 !important;
+  font-family: enFont;
+  border-bottom: 2px solid;
+  width: fit-content;
 }
 
 #terms-and-conditions {
-    font-size: 12.5px;
+  font-size: 12.5px;
 }
 a {
-    color: #ee7b0b;
-    font-size: 12px;
+  color: #ee7b0b;
+  font-size: 12px;
+}
+
+.settings-button,
+.newsletter-button {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px; /* Adjust padding as needed */
+  border: 1px solid #ccc; /* Border color */
+  border-radius: 5px; /* Rounded corners */
+  background-color: #f8f9fa; /* Light background color */
+  color: #333; /* Text color */
+  font-size: 14px; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s, border-color 0.3s; /* Transition effects */
+}
+
+.settings-button:hover,
+.newsletter-button:hover {
+  background-color: #e2e6ea; /* Darker background on hover */
+}
+
+.settings-button:focus,
+.newsletter-button:focus {
+  outline: none; /* Remove default outline */
 }

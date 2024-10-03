@@ -1,12 +1,18 @@
 import './TopTitle.css';
 import { useTranslation } from 'react-i18next';
 
-const TopTitle = ({ isSubscribed }) => {
+
+const TopTitle = ({ isSubscribed, userId, showSettings, handleSettingsClick }) => {
   const { t } = useTranslation();
 
   return (
     <div className="text-left newsletter-container">
       <h2 className="fw-bold fs-4 newsletter-heading">{t('newsletter_subscription_center')}</h2>
+      {userId !== "0"  && (
+        <button className="settings-button mx-2 d-flex" onClick={handleSettingsClick}>
+          {showSettings ? t('newsletter') : t('settings')}
+        </button>
+      )}
       <p className="fw-light fs-6 mb-0">{t('more_content')}</p>
       {!isSubscribed && (
         <p className="fw-light fs-6 mb-0">{t('choose_newsletter')}</p>

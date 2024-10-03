@@ -26,5 +26,8 @@
   "subscription_success": "Subscribed successfully!",
   "subscription_failure": "Failed to subscribe",
   "unsubscription_success": "Unsubscribed successfully!",
-  "unsubscription_failure": "Failed to unsubscribe"
+  "unsubscription_failure": "Failed to unsubscribe",
+  "available": "Available in Arabic",
+  "settings": "Settings",
+  "newsletter": "Newsletters"
 }
