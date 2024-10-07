@@ -1,0 +1,60 @@
+:root {
+    --bs-border-width: 1px;
+    --bs-border-color: #ccc;
+    --bs-border-radius: 15px;
+    --bs-secondary-bg: #f8f9fa;
+    --bs-emphasis-color: #ff5722;
+    --bs-body-bg: #fff;
+}
+
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+    unicode-bidi: isolate;
+}
+
+.px-0 {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+
+.border-bottom-0 {
+    border-bottom: 0 !important;
+}
+
+
+
+.container-lg {
+    background-color: #fff; /* Body background color */
+    border-radius: 15px; /* Border radius */
+    padding: 20px;
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #ccc; /* Border color */
+}
+
+.nav-link {
+    color: inherit; /* Keep the text color */
+    border: 1px solid transparent; /* Initial border */
+    border-radius: 15px 15px 0 0; /* Border radius */
+    margin-right: 5px;
+    transition: background-color 0.3s, border-color 0.3s; /* Transition for background and border */
+}
+
+.nav-link:hover {
+    border-color: #ff5722; /* Change border color on hover */
+    background-color: #f8f9fa;
+}
+
+.nav-link.active {
+    color: #ff5722; /* Emphasis color */
+    background-color: #fff; /* Active background color */
+    border-color: #ccc #ccc #fff; /* Active border color */
+}
+
+.tab-content {
+    border-top: none;
+    border-radius: 0 0 15px 15px; /* Border radius */
+}

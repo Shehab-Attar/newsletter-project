@@ -33,6 +33,17 @@ export const unsubscribeFromNewsletter = async ({ userId, preferenceID }) => {
 // Function to fetch user subscriptions
 export const getUserSubscription = async (userId, langId) => {
   const response = await axiosInstance.get(`/api/v1/json/newsletter/get-user-subscriptions?userId=${userId}&langId=${langId}`);
-  console.log('API response in getUserSubscription:', response.data); // Debugging log
+  return response.data;
+};
+
+// Function to fetch user settings
+export const getUserSettings = async (userId, langId) => {
+  const response = await axiosInstance.get(`/api/v1/json/newsletter/get-user-settings?userId=${userId}`);
+  return response.data;
+};
+
+// Function to update user settings
+export const updateUserSettings = async (userId, langId, settings) => {
+  const response = await axiosInstance.post(`/api/v1/json/newsletter/manage-user-settings?userId=${userId}&SettingId=${settings.settingId}&IsChecked=${settings.isChecked}`);
   return response.data;
 };

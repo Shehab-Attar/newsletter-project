@@ -7,13 +7,15 @@ const TopTitle = ({ isSubscribed, userId, showSettings, handleSettingsClick }) =
 
   return (
     <div className="text-left newsletter-container">
-      <h2 className="fw-bold fs-4 newsletter-heading">{t('newsletter_subscription_center')}</h2>
+        <h2 className="fw-bold fs-4 newsletter-heading">{t('newsletter_subscription_center')}</h2>
+      <div className="d-flex justify-content-between align-items-center">
+      <p className="fw-light fs-6 mb-0">{t('more_content')}</p>
       {userId !== "0"  && (
-        <button className="settings-button mx-2 d-flex" onClick={handleSettingsClick}>
+        <button className="settings-button flex-wrap btn fw-bold d-flex align-items-center btn-light mb-1" onClick={handleSettingsClick}>
           {showSettings ? t('newsletter') : t('settings')}
         </button>
       )}
-      <p className="fw-light fs-6 mb-0">{t('more_content')}</p>
+      </div>
       {!isSubscribed && (
         <p className="fw-light fs-6 mb-0">{t('choose_newsletter')}</p>
       )}

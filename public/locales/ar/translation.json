@@ -29,5 +29,15 @@
   "unsubscription_failure": "فشل في إلغاء الاشتراك",
   "available": "متاح بالانجليزية",
   "settings": "الاعدادات",
-  "newsletter": "النشرات"
+  "newsletter": "النشرات",
+  "current_subscriptions": "الاشتراكات الحالية",
+  "preferences": "التفضيلات",
+  "recommendations": "الترشيحات",
+  "no_recommendations": "لا توجد ترشيحات متاحة.",
+  "no_subscriptions_found": "لم يتم العثور على اشتراكات.",
+  "loading": "جارى التحميل...",
+  "error_loading_settings": "خطأ في تحميل الاعدادات",
+  "interests": "الاهتمامات",
+  "communication_frequency": "مدى التحديث",
+  "preferred_language": "اللغة المفضلة"
 }

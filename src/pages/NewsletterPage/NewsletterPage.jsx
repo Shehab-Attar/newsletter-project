@@ -290,15 +290,13 @@ const NewsletterSubscription = () => {
           </p>
         )}
 
-        {showSettings ? <SettingsPage/> : 
+        {showSettings ? <SettingsPage  handleSubscribeClick={handleSubscribeClick} loading={loading} newsletters={newsletters} subscriptions={subscriptions} userId={userId}/> : 
           <NewsletterCard
           newsletters={newsletters}
           subscriptions={subscriptions}
           handleSubscribeClick={handleSubscribeClick}
           loading={loading}
         />}
-
-        
 
         <Modal
           showModal={showModal}

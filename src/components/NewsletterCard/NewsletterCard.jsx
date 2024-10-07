@@ -57,7 +57,6 @@ const NewsletterCard = ({
                           : newsletter.tagsEn}
                       </span>
                     )}
-
                     <p
                       className="p-0 m-0 mb-1 mt-1"
                       style={{ fontSize: "12px" }}
@@ -79,7 +78,6 @@ const NewsletterCard = ({
                           {t("available")}
                         </a>
                       ) : null}
-
                       <button
                         className={`btn btn-sm mt-2 ${
                           subscriptions[newsletter.preferenceID]
@@ -88,7 +86,7 @@ const NewsletterCard = ({
                         }`}
                         style={{ width: "120px" }}
                         onClick={() => handleSubscribeClick(newsletter)}
-                        disabled={loading} // Disable button when loading
+                        disabled={loading}
                       >
                         {subscriptions[newsletter.preferenceID]
                           ? t("unsubscribe")

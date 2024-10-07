@@ -29,5 +29,15 @@
   "unsubscription_failure": "Failed to unsubscribe",
   "available": "Available in Arabic",
   "settings": "Settings",
-  "newsletter": "Newsletters"
+  "newsletter": "Newsletters",
+  "current_subscriptions": "Current Subscriptions",
+  "preferences": "Preferences",
+  "recommendations": "Recommendations",
+  "no_recommendations": "No recommendations available.",
+  "no_subscriptions_found": "No subscriptions found.",
+  "loading": "Loading...",
+  "error_loading_settings": "Error loading settings",
+  "interests": "Interests",
+  "communication_frequency": "Communication Frequency",
+  "preferred_language": "Preferred Language"
 }
