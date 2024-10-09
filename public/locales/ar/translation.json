@@ -39,5 +39,6 @@
   "error_loading_settings": "خطأ في تحميل الاعدادات",
   "interests": "الاهتمامات",
   "communication_frequency": "مدى التحديث",
-  "preferred_language": "اللغة المفضلة"
+  "preferred_language": "اللغة المفضلة",
+  "settings_updated": "!تم تحديث الاعدادات بنجاح"
 }

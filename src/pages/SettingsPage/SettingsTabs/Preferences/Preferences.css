@@ -46,9 +46,7 @@ input:checked + .slider:before {
     transform: translateX(14px);
 }
 
-/* button, input, optgroup, select, textarea {
-    margin: 0;
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
-} */
+.blurred {
+    filter: blur(5px);
+    pointer-events: none; 
+}

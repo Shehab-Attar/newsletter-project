@@ -290,7 +290,7 @@ const NewsletterSubscription = () => {
           </p>
         )}
 
-        {showSettings ? <SettingsPage  handleSubscribeClick={handleSubscribeClick} loading={loading} newsletters={newsletters} subscriptions={subscriptions} userId={userId}/> : 
+        {showSettings ? <SettingsPage  handleSubscribeClick={handleSubscribeClick} loading={loading} newsletters={newsletters} subscriptions={subscriptions} userId={userId} langId={langId} /> : 
           <NewsletterCard
           newsletters={newsletters}
           subscriptions={subscriptions}

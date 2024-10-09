@@ -39,5 +39,6 @@
   "error_loading_settings": "Error loading settings",
   "interests": "Interests",
   "communication_frequency": "Communication Frequency",
-  "preferred_language": "Preferred Language"
+  "preferred_language": "Preferred Language",
+  "settings_updated": "Settings updated successfully!"
 }

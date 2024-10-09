@@ -43,7 +43,12 @@ export const getUserSettings = async (userId, langId) => {
 };
 
 // Function to update user settings
-export const updateUserSettings = async (userId, langId, settings) => {
+export const updateUserSettings = async (userId, settings) => {
+  // Ensure settings object has the required properties
+  if (!settings.settingId || settings.isChecked === undefined) {
+    throw new Error('Invalid settings object: settingId or isChecked is missing');
+  }
+
   const response = await axiosInstance.post(`/api/v1/json/newsletter/manage-user-settings?userId=${userId}&SettingId=${settings.settingId}&IsChecked=${settings.isChecked}`);
   return response.data;
 };

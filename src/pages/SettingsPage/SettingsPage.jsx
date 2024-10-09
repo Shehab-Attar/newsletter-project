@@ -70,7 +70,7 @@ const SettingsPage = ({ handleSubscribeClick, loading, newsletters, subscription
         {/* Preferences content */}
         <div className="tab-pane fade bg-light" id="interests-tab-pane" role="tabpanel" aria-labelledby="interests-tab">
           <div className="container">
-            <Preferences userId={userId} />
+            <Preferences userId={userId}/>
           </div>
         </div>
 
